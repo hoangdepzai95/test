@@ -1,16 +1,10 @@
-var mysql      = require('mysql');
-var connection = mysql.createConnection({
-  host     : 'staging.3dmaps.vn',
-  user     : 'dbu_maapvn',
-  password : 'maapvn',
-  database : 'maap_production'
-});
+const express = require('express')
+const app = express()
 
-connection.connect(function(err) {
-  if (err) {
-    console.error('error connecting: ' + err.stack);
-    return;
-  }
+app.get('/', function (req, res) {
+  res.send('Hello World!')
+})
 
-  console.log('connected as id ' + connection.threadId);
-});
+app.listen(3000, function () {
+  console.log('Example app listening on port 3000!')
+})
